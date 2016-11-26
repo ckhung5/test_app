@@ -11,7 +11,7 @@ end
 
 User.all.each do |user|
   5.times do
-    user.listings.create(
+    listing = user.listings.create(
       title: Faker::Address.street_name,
       description: Faker::Lorem.paragraph(2),
       price: rand(50..500),
@@ -19,6 +19,8 @@ User.all.each do |user|
       country: Faker::Address.country,
       bed_no: rand(1..4)
     )
+    listing.photos = [Pathname.new(Rails.root + "app/assets/images/listings/#{rand(1..12)}.jpg").open]
+    listing.save!
     puts "Created 1 listing"
   end
 end
