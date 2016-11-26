@@ -3,7 +3,8 @@ User.create(email: "tom@cruise.com", password: "123456")
 5.times do
   User.create(
     email: Faker::Internet.email,
-    password: "123456"
+    password: "123456",
+    avatar: Pathname.new(Rails.root + "app/assets/images/avatar/#{rand(1..6)}.jpg").open
   )
   puts "Created 1 user"
 end

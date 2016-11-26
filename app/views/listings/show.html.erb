@@ -1,5 +1,9 @@
 <h1><%= @listing.title %></h1>
 
+<% @listing.photos.each do |photo| %>
+  <%= image_tag photo.thumb.url %>
+<% end %>
+
 <% if @listing.mine?(current_user) %>
   <%= link_to "Edit listing", edit_listing_path(@listing) %>
   <%= link_to "Delete listing", listing_path(@listing), method: :delete, data: {:confirm => 'Are you sure?'} %>

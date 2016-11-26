@@ -11,5 +11,6 @@
   <%= form.text_field :country %><br />
   <%= form.label :bed_no %>
   <%= form.number_field :bed_no %><br />
+  <%= form.file_field :photos, multiple: true %>
   <%= form.submit %>
 <% end %>

@@ -1,4 +1,5 @@
 class Listing < ActiveRecord::Base
+  mount_uploaders :photos, PhotosUploader
   belongs_to :user
 
   def mine?(user)
